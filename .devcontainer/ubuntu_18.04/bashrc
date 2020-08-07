@@ -1,0 +1,30 @@
+
+function oj() {
+  OJ="$(which oj)"
+  env PYENV_VERSION=$(pyenv whence oj) ${OJ} $@
+}
+
+function acc() {
+  LOGIN_URL="https://atcoder.jp/"
+
+  PYENV_VERSION=$(pyenv whence oj)
+  OJ="PYENV_VERSION=${PYENV_VERSION} oj"
+  ACC="PYENV_VERSION=${PYENV_VERSION} $(which acc)"
+  
+  if [[ $1 == "l" || $1 == "login" ]]; then
+    read -p "Username: " USERNAME
+    read -sp "Password: " PASSWORD
+    echo -e "\n------- atcoder-cli -------"
+
+    echo -e "${USERNAME}\n${PASSWORD}" | env ${ACC} login
+    
+    echo -e "\n---- online-judge-tools ----"
+
+    env ${OJ} login -u ${USERNAME} -p ${PASSWORD} --use-browser never ${LOGIN_URL}
+
+    unset USERNAME
+    unset PASSWORD
+  else
+    env ${ACC} $@
+  fi
+}

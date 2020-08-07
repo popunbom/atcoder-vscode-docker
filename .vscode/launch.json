@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug: Python",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug: C++",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "environment": [],
+      "externalConsole": false,
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build: C++ (gcc)",
+      "stopAtEntry": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "text": "-enable-pretty-printing",
+          "description": "Enable pretty printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

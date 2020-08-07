@@ -1,0 +1,40 @@
+{
+  "tasks": [
+    {
+      "label": "Build: C++ (gcc)",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "type": "shell",
+      "command": "/usr/bin/g++",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+    },
+    {
+      "label": "Run Testcase: online-judge-tools",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "type": "shell",
+      "command": "oj",
+      "args": [
+        "t",
+        "-i",
+        "-c",
+        "${fileDirname}/${fileBasenameNoExtension}",
+        "-d",
+        "${fileDirname}/tests"
+      ],
+      "dependsOn": [
+        "Build: C++ (gcc)"
+      ],
+    }
+  ],
+  "version": "2.0.0"
+}

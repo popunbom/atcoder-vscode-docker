@@ -1,0 +1,21 @@
+{
+  "terminal.integrated.shellArgs.linux": [
+    "-l"
+  ],
+  "python.pythonPath": "/home/atcoder/.pyenv/versions/3.8.2/bin/python",
+  "python.terminal.launchArgs": [
+    "-B",
+  ],
+  "code-runner.runInTerminal": true,
+  "code-runner.executorMap": {
+    "c": "cd $dir && gcc -std=gnu11 -O2 -lm $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "cpp": "cd $dir && g++ -std=gnu++17 -Wall -Wextra -O2 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+  },
+  "files.associations": {
+    "*.erb": "erb",
+    "*.jsx.erb:": "javascriptreact",
+    "*.bib": "bibtex",
+    "style": "ini",
+    "*.tcc": "cpp"
+  }
+}
